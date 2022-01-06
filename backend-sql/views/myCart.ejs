@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My cart</title>
+</head>
+
+<body>
+    <% if (props.length> 0 ) { %>
+        <% for (let product of props ) { %>
+            <div>
+                <div>
+                    <img src="<%= product.imageUrl %>" alt="<%= product.imageUrl %>">
+                    <h1>
+                        <%= product.title %>
+                    </h1>
+                    <h2>
+                        <%= product.price %>
+                    </h2>
+                    <h2>
+                        <%= product.description %>
+                    </h2>
+                    <h2>
+                        <%= product.cartItem.quantity %>
+                    </h2>
+                    <form action="/delete-cart/<%= product.id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+
+            <% } %>
+            <form action="/create-order" method="POST">
+                <button type="submit">Order</button>
+            </form>
+
+
+
+
+                <% } else { %>
+                    <div>No Item!!!</div>
+                    <% } %>
+
+                       
+</body>
+
+</html>

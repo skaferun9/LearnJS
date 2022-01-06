@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-product Page</title>
+</head>
+
+<body>
+    <form action='/admin/add-product' method='POST'>
+        <div>
+            <div>
+                <label for="title">Title</label>
+                <input type='text' name='title' id='title'></input>
+            </div>
+            <div>
+                <label for="price">Price</label>
+                <input type='number' name='price' id='price'></input>
+            </div>
+            <div>
+                <label for="description">description</label>
+                <textarea type='text' name='description' row="5" id='description'></textarea>
+            </div>
+            <div>
+                <label for="imgUrl">imgUrl</label>
+                <input type='text' name='imgUrl' id='imgUrl'></input>
+            </div>
+        </div>
+      
+        <button type='submit'>submit</button>
+    </form>
+</body>
+
+</html>

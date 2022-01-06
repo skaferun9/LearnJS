@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My cart</title>
+</head>
+
+<body>
+    <% if (props.length> 0 ) { %>
+        <% for (let order of props ) { %>
+            <h1>Order Number: <%= order.id %></h1>
+            <% for (let product of order.products ) { %>
+                <div>
+                    <h1>
+                        <%= product.title %>
+                    </h1>
+                    <h2>
+                        <%= product.orderItem.quantity %>
+                    </h2>
+                </div>
+                <% } %>
+                <br>
+                <br>
+               
+
+
+                    <% } %>
+
+
+
+
+
+                        <% } else { %>
+                            <div>No Item!!!</div>
+                            <% } %>
+
+
+</body>
+
+</html>

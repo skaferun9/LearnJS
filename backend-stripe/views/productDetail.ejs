@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Korn shop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home </a>
+                    </li>
+                    <% if(isLoggedIn==true) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/order">Order</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/add-product">Add item</a>
+                        </li>
+                        <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/cart">Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/order">Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/create-product">Add item</a>
+                            </li>
+                            <% } %>
+                </ul>
+                <% if(isLoggedIn==true) { %>
+                    <form action="/logout" method="POST">
+                        <input type='hidden' name='_csrf' value="<%= csrfToken %>">
+                        <button class="btn btn-outline-danger">Logout</button>
+                    </form>
+                    <% } else { %>
+                        <form action="/login" method="get">
+                            <button type='submit' class="btn btn-outline-success">Login</button>
+                        </form>
+                        <% } %>
+
+            </div>
+
+
+
+        </div>
+    </nav>
+    <div>
+        <img src="<%= props.imgUrl %>" alt="<%= props.imgUrl %>">
+        <h1>
+            <%= props.title %>
+        </h1>
+        <h2>
+            <%= props.price %>
+        </h2>
+        <h2>
+            <%= props.description %>
+        </h2>
+  
+    </div>
+</body>
+</html>
